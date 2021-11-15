@@ -91,7 +91,7 @@ async function run(){
         //GET BY EMAIL BOOKING 
         app.get('/purchase',async(req,res)=>{
             const email = req.query.Email;
-            const query = { Email: Email};
+            const query = { Email: email};
             const cursor = orderCollection.find(query);
             const orders=await cursor.toArray();
             res.json(orders);
