@@ -99,7 +99,7 @@ async function run(){
         });
 
         //GET API: GET ALL PURCHASE DETAILS 
-                app.get('/purchase',async(req,res)=>{
+                app.get('/purchase1',async(req,res)=>{
                     const cursor=orderCollection.find({});
                     const AllOrders=await cursor.toArray();
                     res.send(AllOrders);
