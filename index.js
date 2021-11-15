@@ -102,7 +102,7 @@ async function run(){
                 app.get('/purchase',async(req,res)=>{
                     const cursor=orderCollection.find({});
                     const AllOrders=await cursor.toArray();
-                    res.json(AllOrders);
+                    res.send(AllOrders);
                 });
         //POST FOR REVIEW 
         app.post('/reviews',async(req,res)=>{
