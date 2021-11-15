@@ -88,11 +88,13 @@ async function run(){
             res.json(result);
             
         });
-        //POST FOR BOOKING A CYCLE 
+        //GET BY EMAIL BOOKING 
         app.get('/purchase',async(req,res)=>{
-            const cursor=orderCollection.find({});
+            const email = req.query.email;
+            const query = { email: email};
+            const cursor = orderCollection.find(query);
             const orders=await cursor.toArray();
-            res.send(orders);
+            res.json(orders);
             
         });
         //POST FOR REVIEW 
