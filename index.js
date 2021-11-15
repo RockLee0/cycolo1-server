@@ -81,14 +81,14 @@ async function run(){
         });
     
     
-        //POST FOR BOOKING A CYCLE 
+        //POST FOR  A CYCLE 
         app.post('/purchase',async(req,res)=>{
             const order=req.body;
             const result=await orderCollection.insertOne(order);
             res.json(result);
             
         });
-        //GET BY EMAIL BOOKING 
+        //GET BY EMAIL 
         app.get('/purchase',async(req,res)=>{
             const email = req.query.Email;
             const query = { Email: email};
@@ -97,6 +97,13 @@ async function run(){
             res.json(orders);
             
         });
+
+        //GET API: GET ALL PURCHASE DETAILS 
+                app.get('/purchase',async(req,res)=>{
+                    const cursor=orderCollection.find({});
+                    const AllOrders=await cursor.toArray();
+                    res.send(AllOrders);
+                });
         //POST FOR REVIEW 
         app.post('/reviews',async(req,res)=>{
             const review=req.body;
